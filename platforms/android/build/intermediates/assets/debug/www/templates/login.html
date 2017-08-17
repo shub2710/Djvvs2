@@ -1,0 +1,97 @@
+<ion-view title="Login" id="page8" style="background-color:#F2F2F2;" ion-title="center" class="custom" >
+  <ion-nav-bar class="custom-dark">
+  </ion-nav-bar>
+
+  <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg) no-repeat center center fixed;background-size:cover;">
+
+    <div class="spacer" style="width: 300px; height: 203px;"></div>
+    <div class="list"  ng-if="logintype == 1">
+
+
+          <center>  <a class="item "  style="background-color:#F2F2F2;color:  #CE5A57;" ng-click="loginasparent()">
+              Parent
+            </a></center>
+
+            <center><a class="item  " style="background-color:#F2F2F2;color:  #CE5A57;" ng-click="loginasteacher()">
+              Teacher
+            </a></center>
+  </div>
+
+<div ng-if="parentlogin == 1">
+    <form name = "myForm" id="login-form1" class="list" >
+
+      <div class="list">
+        <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="email" name="password" ng-model="user.username1">
+        </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" name="password" ng-model="user.password">
+            </label>
+        </div>
+
+      <div class="spacer" style="height: 40px;"></div>
+
+        <div class="button-bar">
+          <a class="button custom-dark custom"  ng-click="Parentlogin(user.username1,user.password)"> Parent Login</a>
+        </div>
+
+           <div>
+                  <p ng-show="showerror" style="color:#CE5A57;text-center:center;">Please enter proper details</p>
+            </div>
+ </form>
+ <div class="spacer" style="height: 80px;"></div>
+ <div >
+   <center><a style="color:linear-gradient(to top right, #660033 0%, #ffffff 100%) ;" ng-click="changelogin()">Change login</a></center>
+
+ </div>
+ </div>
+
+<div ng-if="teacherlogin == 1">
+ <form name = "myForm" id="login-form1" class="list " ng-show="teacherlogin" >
+
+   <div class="list">
+         <label class="item item-input">
+             <span class="input-label">Username</span>
+             <input type="email" name="username" ng-model="teacheruser.email"  >
+         </label>
+         <label class="item item-input">
+             <span class="input-label">Password</span>
+             <input type="password" name="password" ng-model="teacheruser.password">
+         </label>
+     </div>
+
+   <div class="spacer" style="height: 40px;"></div>
+
+     <div class="button-bar">
+       <a class="button custom-dark custom"   ng-click="Teacherlogin(teacheruser.email,teacheruser.password)"> Teacher Login</a>
+     </div>
+
+        <div>
+               <p ng-show="showerror" style="color:#CE5A57;text-center:center;">Please enter proper details</p>
+         </div>
+</form>
+<div class="spacer" style="height: 80px;"></div>
+<div >
+<center>  <a style="color:linear-gradient(to top right, #660033 0%, #ffffff 100%) ;" ng-click="changelogin()">Change login</a></center>
+
+</div>
+
+</div>
+
+
+
+  </ion-content>
+</ion-view>
+
+<style>
+
+.custom-dark{
+    background:linear-gradient(to top right, #660033 53%, #ffffff 150%); !important; // for bg color
+ }
+ .custom{
+   color:#ffffff !important;
+  }
+
+</style>

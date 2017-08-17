@@ -1,0 +1,28 @@
+<ion-view title="Attendance  " id="page3">
+  <ion-content padding="true" class="has-header"  style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+
+  <div class="spacer" style="width=100%;height:10%;"></div>
+    <div class="item item-divider item-center" style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);; color:#ffffff;text-align:center">
+      {{viewTitle}}
+    </div>
+
+  <div>
+      <calendar ng-if="showcalender == 1" ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+                           range-changed="reloadSource(startTime, endTime)"
+                           event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)" showEventDetail = false
+                           time-selected="onTimeSelected(selectedTime, events, disabled)" step="30"></calendar>
+</div>
+
+<div class="list">
+
+    <a class="item item-avatar" style=" border-color: darkviolet;" >
+      <img style="background-color:#338e5b;width:5%;height:30%;" >
+      <h2>Attendance Marked (Check Above)</h2>
+    </a>
+
+
+
+</div>
+
+  </ion-content>
+</ion-view>

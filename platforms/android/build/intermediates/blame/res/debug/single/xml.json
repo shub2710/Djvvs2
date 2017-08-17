@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\ProjectDemo\\demoapp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\config.xml",
+        "source": "D:\\ProjectDemo\\demoapp\\platforms\\android\\res\\xml\\config.xml"
+    },
+    {
+        "merged": "D:\\ProjectDemo\\demoapp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\provider_paths.xml",
+        "source": "D:\\ProjectDemo\\demoapp\\platforms\\android\\res\\xml\\provider_paths.xml"
+    }
+]

@@ -1,0 +1,48 @@
+<ion-view title="Class Student List" id="page8">
+  <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+
+
+    <label class="item item-input item-select">
+      <div class="input-label">
+          Class
+        </div>
+      <select ng-model="classselected.class"  >
+        <option ng-repeat="clas in classes | unique: 'class'" >{{clas.class}}</option>
+      </select>
+  </label>
+
+
+      <div>
+        <label class="item item-input item-select" >
+            <div class="input-label">
+                Section:
+              </div>
+            <select ng-model="classselected.section" ng-change="fetchstudentlist()" >
+              <option ng-repeat = "section in classes">{{section.classsection}}</option>
+
+
+            </select>
+        </label>
+      </div>
+
+<div class="list card" ng-repeat="student in studentdetails" style="margin-top:3px">
+
+          <div class="item item-avatar" style="border-color: darkviolet;">
+            <img ng-src="{{student.studentpicurl}}">
+            <h2>Name: {{student.studentname}}</h2>
+            <p>DOB: {{student.studentdob}}</p>
+          </div>
+
+          <div class="item item-body" style="border-color: darkviolet;">
+            <p>
+              <b>Address :  {{student.studentaddress}}</b>
+            </p>
+            <p>
+              <a class="subdued"><b>Gender: {{student.studentgender}}</b></a>
+            </p>
+          </div>
+
+</div>
+
+  </ion-content>
+</ion-view>

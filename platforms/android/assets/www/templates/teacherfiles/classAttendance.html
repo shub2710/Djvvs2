@@ -1,0 +1,86 @@
+<ion-view title="Class Attendance" id="page7">
+  <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+    <form id="classAttendance-form8" class="list">
+
+      <label class="item item-input item-center " style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;text-align:center;display: flow-root;">
+                Mark Attendance
+
+      </label>
+      <label class="item item-input item-select" style="background-color: gainsboro;color:color:#660033;">
+          <div class="input-label"  style="background-color: gainsboro;color:#660033;">
+              Class
+            </div>
+          <select ng-model="classselected3.class" ng-change="getstudentlistA()" style="background-color: gainsboro;color:#ffffff;">
+            <option ng-repeat="clas in classes3 | unique: 'class'">{{clas.class}}</option>
+          </select>
+      </label>
+
+      <label class="item item-input item-select" style="background-color: gainsboro;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
+              Section:
+            </div>
+          <select ng-model="classselected3.section" ng-change="getstudentlistA()" style="background-color: gainsboro;">
+            <option ng-repeat="clas in classes3">{{clas.classsection}}</option>
+          </select>
+      </label>
+      <label class="item item-input item-select" style="
+    background-color: gainsboro;
+">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
+              Date:
+            </div>
+            <input type="date" placeholder="Date of attendance"  name="date" ng-model="classselected3.date">
+      </label>
+      <label class="item item-input item-select"  style="background-color: gainsboro;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
+              Session
+            </div>
+            <select ng-model="classselected3.session" style="background-color: gainsboro;color:#660033;">
+              <option >Morning</option>
+              <option >Afternoon</option>
+            </select>
+        </label>
+
+
+      <div class="spacer" style="height: 18px;"></div>
+    </form>
+
+    <div class="list" style="border-color: darkviolet;" style="background-color: gainsboro;">
+      <label  class="item " ng-repeat="student in studentdetailsforattendance" style="border-color: darkviolet;" >
+      <input type="checkbox" class="checkboxOne"  id="roundedTwo" data-checklist-value="student.studentid" data-checklist-model="selectedstudents" ng-click="check()"/> <label> {{student.studentname}}</label>
+    </label>
+    </div>
+
+  </ion-content>
+  <div class="bar bar-footer "style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;">
+    <div class="title" style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;"ng-click="submitattendance()">Submit</div>
+</div>
+</ion-view>
+
+<style>
+
+.checkboxOne {
+width: 30px;
+height: 20px;
+background: #555;
+margin: 20px 80px;
+position: relative;
+border-radius: 3px;
+}
+.checkboxOne label {
+display: block;
+width: 16px;
+height: 16px;
+border-radius: 50%;
+-webkit-transition: all .5s ease;
+-moz-transition: all .5s ease;
+-o-transition: all .5s ease;
+-ms-transition: all .5s ease;
+transition: all .5s ease;
+cursor: pointer;
+position: absolute;
+top: -3px;
+left: -3px;
+background: #ccc;
+}
+</style>

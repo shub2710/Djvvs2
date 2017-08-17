@@ -1,0 +1,40 @@
+
+<ion-view title="Notifications" id="page5">
+  <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+    <div class="list card " ng-repeat="notification in studentnotifications" style=" border-color: darkviolet;margin-top:0px;">
+
+  <div class="item" style=" border-color: darkviolet;">
+    <h2><b>Name: {{notification.name}} </h2></b>
+    <p><b> Last date:</b> {{notification.notificationdate}}  <a ng-if="notification.read != 1" ng-click="marknotificationasread(notification.notificationid)"><span class="item-note" style="color:#CE5A57">
+           Mark as Read
+        </span></a>
+        <a ng-if="notification.read == 1"><span class="item-note" style="color:#008000">
+              Read!!
+            </span></a>
+      </p>
+  </div>
+
+  <div class="item" style=" border-color: darkviolet;">
+    <p>
+    <b>  Description: </b>{{notification.description}}
+    </p>
+    <p>
+      <a  class="subdued"><b>By:</b> {{notification.teachername}}</a>
+    </p>
+    <p>
+      <a  class="subdued"><b>Priority:</b> {{notification.priority}}
+      </a>
+    </p>
+  </div>
+</div>
+
+<div class="list card" ng-show="nonotificationsyet">
+      <div class="item ">
+        <h2><b>No Notifications yet</b></h2>
+
+      </div>
+
+</div>
+
+  </ion-content>
+</ion-view>

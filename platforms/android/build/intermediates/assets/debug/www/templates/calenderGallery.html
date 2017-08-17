@@ -1,0 +1,37 @@
+
+<ion-view title="Calender/Gallery" id="page6">
+  <ion-content padding="true" class="has-header"  style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+
+
+
+    <div ng-repeat="event in eventsarray" >
+
+    <div class="list card " style="margin-top:0px">
+
+      <a class="item " style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;border-color: darkviolet;text-align:center; color:#ffffff;border-color: darkviolet;" >
+        <center><p style="white-space:normal;color:#ffffff;">{{event.eventname}}</p></center>
+      </a>
+
+          <div class="item item-image">
+            <img ng-src="{{event.eventimagesrc}}" >
+          </div>
+
+          <a class="item item-icon-left" style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;" >
+            <i class="icon ion-images"></i>
+            <p style="white-space:normal;color:#ffffff;">About: {{event.eventdescription}}</p>
+          </a>
+          <a class="item item-icon-left " style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;">
+            <i class="icon ion-images" ></i>
+           <p style="white-space:normal;color:#ffffff;">Event will be on: {{event.eventdate}}</p>
+          </a>
+
+          </div>
+    </div>
+    <div class="list" ng-if="noevents == 1">
+      <a > No events Yet</a>
+    </div>
+
+
+
+  </ion-content>
+</ion-view>

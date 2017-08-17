@@ -1,0 +1,37 @@
+<ion-view title="Event Calendar" id="page6">
+  <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+
+    <div ng-repeat="event in eventsarray" style="
+    margin-top: -25px;">
+
+    <div class="list card ">
+
+      <a class="item " style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;" >
+        <center><p style="white-space:normal;color:#ffffff;">{{event.eventname}}</p></center>
+      </a>
+
+          <div class="item item-image">
+            <img ng-src="{{event.eventimagesrc}}" >
+          </div>
+
+        <a class="item item-icon-left"    style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);">
+            <i class="icon ion-images" ></i>
+            <span style="white-space:normal;color:#ffffff;border-color: darkviolet;">About: {{event.eventdescription}}</span>
+          </a>
+        <a class="item item-icon-left"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);" >
+            <i class="icon ion-images" ></i>
+            <span style="white-space:normal;color:#ffffff;border-color: darkviolet">Event Date: {{event.eventdate}}</span>
+          </a>
+          <a class="item item-icon-left assertive" ng-click="deletingevent(event.eventid)" style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);">
+            <span style="white-space:normal;color:#ffffff;"> <i class="icon ion-ios-trash-outline" > </i>Delete </span>
+          </a>
+
+          </div>
+  </div>
+  <div class="list" ng-if="noevents == 1">
+    <a > No events Yet</a>
+  </div>
+  </ion-content>
+  <ion-floating-button click="openTneweventModal()" has-footer="false" button-color="linear-gradient(to top right, #660033 53%, #ffffff 150%);" icon="ion-plus" icon-color="#fff">
+</ion-floating-button>
+</ion-view>

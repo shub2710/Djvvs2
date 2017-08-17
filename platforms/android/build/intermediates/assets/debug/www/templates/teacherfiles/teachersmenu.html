@@ -1,0 +1,93 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="custom1 cust2">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="side-menu2"></ion-nav-view>
+  </ion-side-menu-content>
+  <ion-side-menu side="left" id="side-menu2" >
+    <ion-header-bar class="custom1">
+      <div class="title cust2">Menu</div>
+    </ion-header-bar>
+    <ion-content padding="flase" style="top:0px !important;" class="side-menu-left  cust3 ">
+
+
+
+      <div class="list">
+          <a class="item item-icon-left" ng-click="changetoThome()" menu-close >
+              <i class="icon ion-android-home"></i>
+            Home
+          </a>
+
+          <a class="item item-icon-left item-icon-right"  ng-click="changetoTclassstudentlist()"  menu-close>
+            <i class="icon ion-android-list"></i>
+                Student List
+              <i class="icon"></i>
+            </a>
+
+            <a class="item item-icon-left "  ng-click="changetoTclassschedule()" menu-close="">
+              <i class="icon ion-calendar"></i>
+                  Class Schedule
+              </a>
+
+              <a class="item item-icon-left "  ng-click="changetoTclassattendance()" menu-close >
+                <i class="icon ion-android-checkmark-circle"></i>
+                    Class Attendance
+                </a>
+
+                <a class="item item-icon-left "  ng-click="changetoTstudentexams()" menu-close>
+                  <i class="icon ion-chatbubble-working"></i>
+                    Student Exams
+                  </a>
+
+                  <a class="item item-icon-left"  ng-click="changetoTnotifications()" menu-close>
+                    <i class="icon ion-android-notifications"></i>
+                      Notifications
+                    </a>
+                    <a class="item item-icon-left"  ng-click="changetoTeventcalender()" menu-close>
+                      <i class="icon ion-map"></i>
+                        Calender
+                      </a>
+                    
+
+                      <a class="item item-icon-left "   ng-click="logoutT()" menu-close >
+                        <i class="icon ion-log-out"></i>
+                        Logout
+                        </a>
+
+
+
+        </div>
+
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+
+<style>
+
+.custom1{
+  background:linear-gradient(to top right, #660033 53%, #ffffff 150%); !important; // for bg color
+
+}
+
+.cust3 {
+
+
+  background:  linear-gradient(to top right, #660033 -200%, #ffffff 150%);!important; // for bg color
+
+}
+
+.cust2 {
+  color: #ffffff !important;
+}
+
+.menu-left .item{
+  border: none !important;
+  background: linear-gradient(to top right, #660033 0%, #ffffff 100%);
+  color: white;
+}
+
+</style>

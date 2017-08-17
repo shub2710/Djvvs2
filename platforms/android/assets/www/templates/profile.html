@@ -1,0 +1,36 @@
+<ion-view title="Profile" id="page1">
+  <ion-content class="has-header"   style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+
+    <div style="background-color:#ebebe0" >
+
+        <img  style="padding-left:6px;border-radius : 50%;height:200px;margin-left:70px" ng-src="{{parentstudentdetail.student_profile_picture}}">
+
+      </div>
+    <div class="list card" id="profile-card21" style="margin-top:10px;">
+      <ion-item  id="profile-list-item10" style=" border-color: darkviolet;" >
+
+        <h2>Name: {{parentstudentdetail.student_name}}</h2>
+      </ion-item>
+      <ion-item id="profile-list-item19"  style=" border-color: darkviolet;">Class : {{parentstudentclassdetail.class_batch}}</ion-item>
+
+      <ion-item id="profile-list-item20"  style=" border-color: darkviolet;">Section : {{parentstudentclassdetail.class_section}}</ion-item>
+
+      <ion-item id="profile-list-item20" class="item item-icon  item-text-wrap item-icon-right" style=" border-color: darkviolet;" ng-if="editaddress == 0">
+        Address : {{parentstudentdetail.student_address}}  <i class="icon icon-button ion-edit"  ng-click="editaddressofstudent();"></i>
+</ion-item>
+
+<ion-item ng-if="editaddress == 1">
+    New Address
+    <textarea type="textarea" name="newaddress" ng-model ="newaddress.address"  style="width:100%;">  </textarea>
+     <i class="icon icon-right icon-button ion-checkmark-circled" ng-click="updateaddress(newaddress.address);" style="padding-left: 250px;font-size: 30px;"></i>
+     <i class="icon icon-right icon-button ion-android-cancel" ng-click="canceladdress();" style="padding-left: 12px;font-size: 30px;"></i>
+
+</ion-item>
+
+      <ion-item id="profile-list-item20"  style=" border-color: darkviolet;">DOB: {{parentstudentdetail.student_dob}}</ion-item>
+
+      <ion-item id="profile-list-item20"  style=" border-color: darkviolet;">Blood Group: {{parentstudentdetail.student_blood_group}}</ion-item>
+
+    </div>
+  </ion-content>
+</ion-view>

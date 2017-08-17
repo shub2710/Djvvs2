@@ -1,0 +1,43 @@
+<ion-modal-view>
+  <ion-header-bar align-title="center" class="custom3" >
+    <h1 class="title" style="color: #ffffff">Create Notification</h1>
+    <button class="button button-clear cust2" ng-click="closeTcreatenotificationModal()">close</button>
+  </ion-header-bar>
+
+   <ion-header-bar align-title="center" class="custom3 cust2">
+     <h1 class="title" style="color:#ffffff;">New Event</h1>
+     <button class="button button-clear cust2" ng-click="closeTneweventModal()">close</button>
+   </ion-header-bar>
+   <ion-content style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+             <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" placeholder="Event Name" ng-model="newevent.name">
+          </label>
+          <label class="item item-input">
+            <textarea  placeholder="Event Description" ng-model="newevent.description"> </textarea>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Event date
+              </div>
+            <input type="date" placeholder="Event Date" ng-model="newevent.eventdate">
+          </label>
+          <label class="item item-input">
+            <button class="button button-dark button-block" ng-click="uploadeventimage()">Upload Image</button>
+          </label>
+        </div>
+
+   </ion-content>
+   <div class="bar bar-footer custom3 cust2">
+  <div class="title" ng-click="createnewevent();closeTneweventModal();">Create</div>
+</div>
+ </ion-modal-view>
+ <style>
+
+ .custom3{
+background:linear-gradient(to top right, #660033 53%, #ffffff 150%); !important; // for bg color
+ }
+ .cust2 {
+   color: #ffffff !important;
+ }
+ </style>
