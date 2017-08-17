@@ -1,0 +1,32 @@
+<ion-view title="Student Exams" id="page4">
+  <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+
+    <div class="list card " id="profile-card21" ng-repeat="exam in examsarray" >
+      <ion-item class=" item-icon-right" id="profile-list-item10"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;text-align:center;">
+        <h2 style="color:#ffffff">Exam Name: {{exam.examname}} <span class="item-note"  ng-click="deletingexam(exam.Exam_id)">
+              Delete  <i class="icon ion-ios-trash-outline" style="color:#f2f2f2" > </i>
+            </span></h2>
+      </ion-item>
+      <ion-item id="profile-list-item19" style="background-color:#f2f2f2">Class : {{exam.classname}} <span class="item-note" style="color:linear-gradient(to top right, #660033 53%, #ffffff 150%);">
+             <b>{{exam.classsection}} Section</b>
+          </span></ion-item>
+      <ion-item id="profile-list-item20" style="background-color:#f2f2f2">Subject : {{exam.subjectname}}</ion-item>
+      <ion-item id="profile-list-item20" style="background-color:#f2f2f2">Exam Date: {{exam.examdate}} <span class="item-note" style="color:linear-gradient(to top right, #660033 53%, #ffffff 150%);">
+            <b>Time: {{exam.examtime}}</b>
+          </span></ion-item>
+      <ion-item class="item-divider" ng-if="currentdate > exam.examdate"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;text-align:center;">Exam date over</ion-item>
+      <ion-item class="item-divider" ng-if="currentdate < exam.examdate"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;text-align:center;">Exam yet to Happen</ion-item>
+
+
+    </div>
+
+    <div class="list" ng-show="noexamsfound">
+  <div class="item item-divider">
+    No Exams yet
+  </div>
+</div>
+  </ion-content>
+  <ion-floating-button click="openTnewexamModal()" has-footer="false" button-color="linear-gradient(to top right, #660033 53%, #ffffff 150%);" icon="ion-plus" icon-color="#fff">
+</ion-floating-button>
+
+</ion-view>

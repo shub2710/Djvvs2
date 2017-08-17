@@ -1,0 +1,28 @@
+div {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.img-circle {
+    border-radius: 50%;
+
+}
+#new{
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.gray-content {
+    background-color: #e5e5e5;
+}
+
+.menu.menu-left{
+  width:100% !important;
+  background-color:red !important;
+}

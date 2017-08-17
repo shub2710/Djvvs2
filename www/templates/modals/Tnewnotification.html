@@ -1,0 +1,94 @@
+<ion-modal-view>
+   <ion-header-bar align-title="center" class="custom4" >
+     <h1 class="title" style="color: #ffffff">Create Notification</h1>
+     <button class="button button-clear cust2" ng-click="closeTcreatenotificationModal()">close</button>
+   </ion-header-bar>
+   <ion-content class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+     <div class="list card">
+
+       <label class="item item-input">
+          <input type="text" placeholder="Notification Name" ng-model="newnotification.name">
+        </label>
+
+        <label class="item item-input">
+          <input type="text" placeholder="Description" ng-model="newnotification.description">
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Notification date
+            </div>
+          <input type="date" placeholder="Notification Date" ng-model="newnotification.notificationdate">
+        </label>
+
+
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Notification for
+              </div>
+            <select ng-model="newnotification.sendto" ng-change="getlist()">
+              <option>Class</option>
+              <option>Student</option>
+            </select>
+        </label>
+        <label class="item item-input item-select">
+            <div class="input-label">
+                Priority
+              </div>
+            <select ng-model="newnotification.priority">
+              <option>High</option>
+              <option>Medium</option>
+              <option>Critical</option>
+
+            </select>
+        </label>
+
+        <label class="item item-divider item-asssertive" ng-if="showclasses == 1"> Classes
+          <label  class="item " ng-repeat="class in classes4" >
+          <input type="checkbox" class="checkboxOne"  id="roundedTwo" data-checklist-value="class.classid" data-checklist-model="selectedclass" /> <label> Class - {{class.class}} : {{class.classsection}}</label>
+        </label>
+      </label>
+
+      <label class="item item-input item-select" ng-if="showclassselection == 1">
+        <div class="input-label">
+            Class
+          </div>
+        <select ng-model="classforlist.class"  ng-change="fetchstudentlist()">
+          <option ng-repeat="clas in classes4 | unique: 'class'">{{clas.class}}</option>
+        </select>
+    </label>
+
+
+
+          <label class="item item-input item-select"  ng-if="showclassselection == 1">
+              <div class="input-label">
+                  Section:
+                </div>
+              <select ng-model="classforlist.section" ng-change="fetchstudentlist()" >
+                <option ng-repeat = "section in classes4">{{section.classsection}}</option>
+              </select>
+          </label>
+
+          <label class="item item-divider item-asssertive" ng-if="showstudents == 1"> Students
+            <label  class="item " ng-repeat="student in studentdetails" >
+            <input type="checkbox" class="checkboxOne"  id="roundedTwo" data-checklist-value="student.studentid" data-checklist-model="selectedstudents" /> <label>{{student.studentname}}</label>
+          </label>
+        </label>
+
+
+
+     </div>
+ </ion-content>
+ <div class = "bar bar-footer custom4" ng-click="closeTcreatenotificationModal();createnotification()" >
+   <h1 class = "title" style="color:#ffffff;">Submit</h1>
+</div>
+ </ion-modal-view>
+
+ <style>
+
+ .custom4{
+background:linear-gradient(to top right, #660033 53%, #ffffff 150%); !important; // for bg color
+ }
+ .cust2 {
+   color: #ffffff !important;
+ }
+ </style>

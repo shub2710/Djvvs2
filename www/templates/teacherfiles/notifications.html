@@ -1,0 +1,39 @@
+<ion-view title="Notifications" id="page5">
+  <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+    <div class="list card" ng-repeat="notification in allnotifications" ng-show="shownotifications" style="border-color: darkviolet;margin-top:0px;">
+          <div class="item" style="border-color: darkviolet;">
+
+            <h2><b>{{notification.name}} </b>  <a ng-click="deletenotification(notification.notificationid);"><span class="item-note" style="color:#660033;">
+                  Delete Me!!
+                  </span></a></h2>
+            <p><b>{{notification.description}} </b><a ng-if="notification.read != 1"><span class="item-note" style="color:#CE5A57">
+                   Not Read Yet
+                </span></a>
+                <a ng-if="notification.read == 1"><span class="item-note" style="color:#008000">
+                      Read by Parent!!
+                    </span></a></p>
+          </div>
+      <div class="item item-body" style="border-color: darkviolet;">
+              <p>
+                <a  class="subdued" style="color:#660033;" >Created on: {{notification.createddate}}</a><br>
+                <a  class="subdued" style="color:#660033;" >Notification date: {{notification.notificationdate}}</a><br>
+                <a class ="subdued"  style="color:#660033;" >Notification for : {{notification.for}}</a>
+                <a class ="subdued" style="color:#660033;" >Priority : {{notification.priority}}</a>
+              </p>
+      </div>
+
+</div>
+<div class="list card" ng-show="shownoresult" style="border-color: darkviolet;">
+      <div class="item ">
+
+        <h2>No Notifications yet</h2>
+
+      </div>
+
+</div>
+  </ion-content>
+
+    <ion-floating-button click="openTcreatenotificationModal()" has-footer="false" button-color="linear-gradient(to top right, #660033 53%, #ffffff 150%);" icon="ion-plus" icon-color="#fff">
+</ion-floating-button>
+
+</ion-view>
