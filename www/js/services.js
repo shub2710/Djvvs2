@@ -100,11 +100,14 @@ angular.module('app.services', [])
                           var postData = data;
                           var clas = postData.class;
                           var section = postData.section;
+                          var date = postData.newdate;
                           console.dir(postData);
+                          console.dir(date);
+
 
                           $http({
                               method: 'GET',
-                              url: 'http://crazycodez.com/djvvs/getstudentlist.php?type=getstudentlist'+ '&class=' + clas + '&section=' + section ,
+                              url: 'http://crazycodez.com/djvvs/getstudentlist.php?type=getstudentlist'+ '&class=' + clas + '&section=' + section  + '&date=' + date ,
                           }).success(function(data) {
                               deferred.resolve(data);
                           }).error(function(data) {
@@ -216,6 +219,44 @@ angular.module('app.services', [])
                           $http({
                               method: 'GET',
                               url: 'http://crazycodez.com/djvvs/examsCRUD.php?type=deleteexam'+ '&examid=' + examid ,
+                          }).success(function(data) {
+                              deferred.resolve(data);
+                          }).error(function(data) {
+                              deferred.reject("Please try again later.");
+                          });
+                          promise.success = function(fn) {
+                              promise.then(fn);
+                              return promise;
+                          }
+                          promise.error = function(fn) {
+                              promise.then(null, fn);
+                              return promise;
+                          }
+                          return promise;
+
+
+          },
+
+          updateexam : function(data){
+                          var deferred = $q.defer();
+                          var promise = deferred.promise;
+                          var examid = data.id2;
+                          var examname = data.Ename;
+                          var examclass = data.classname2;
+                          var examsection = data.classsection2;
+                          var examsubject= data.subjectname2;
+                          var examdate = data.examdate2;
+                          var examtime = data.examtime2;
+                          var examcreatedby = data.createdby;
+                          var examcreationdate = data.creationdate;
+                            console.log(examid);
+                            console.log(examname);
+                            console.log(examclass);
+                            console.log(examsection);
+                            console.log(examsubject);
+                          $http({
+                              method: 'GET',
+                              url: 'http://crazycodez.com/djvvs/examsCRUD.php?type=updateexam'+ '&examid=' + examid + '&examname=' + examname+ '&examclass=' + examclass+ '&examsection=' + examsection+ '&examsubject=' + examsubject+ '&examdate=' + examdate + '&examtime=' + examtime+ '&creationdate=' + examcreationdate + '&createdby=' + examcreatedby,
                           }).success(function(data) {
                               deferred.resolve(data);
                           }).error(function(data) {
@@ -400,6 +441,38 @@ deletenotification : function(id){
               return promise;
 },
 
+
+updatenotification : function(data){
+          var deferred = $q.defer();
+          var promise = deferred.promise;
+
+            var Nid = data.Nid;
+            var Nname = data.Nname;
+            var Ndescription = data.Ndescription;
+            var Ncreatedon = data.Ncreatedon;
+            var Nnotificationdate = data.Nnotificationdate;
+            var Npriority = data.Npriority;
+            console.log(Nid);
+            console.log(Nname);
+
+          $http({
+              method: 'GET',
+              url: 'http://crazycodez.com/djvvs/notificationsCRUD.php?type=updatenotification'+ '&id=' + Nid+ '&name=' + Nname+ '&description=' + Ndescription+ '&createdon=' + Ncreatedon+ '&notificationdate=' + Nnotificationdate + '&priority=' + Npriority,
+          }).success(function(data) {
+              deferred.resolve(data);
+          }).error(function(data) {
+              deferred.reject("Please try again later.");
+          });
+          promise.success = function(fn) {
+              promise.then(fn);
+              return promise;
+          }
+          promise.error = function(fn) {
+              promise.then(null, fn);
+              return promise;
+          }
+          return promise;
+},
 marknotificationasread : function(id){
               var deferred = $q.defer();
               var promise = deferred.promise;

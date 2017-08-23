@@ -1,0 +1,74 @@
+<ion-modal-view>
+
+   <ion-header-bar align-title="center" class="custom2" >
+     <h1 class="title" style="color: #ffffff">Edit Exam</h1>
+     <button class="button button-clear cust2" ng-click="closeTeditexamModal()">close</button>
+   </ion-header-bar>
+   <ion-content class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+     <div class="list card">
+       <label class="item item-input" style="background-color: gainsboro;color:#660033;">
+          <input type="text" placeholder="{{currentselectedexam.Ename}}" ng-model="currentselectedexam.Ename">
+        </label>
+
+        <label class="item item-input" style="background-color: gainsboro;color:#660033;">Old Class: {{currentselectedexam.classname2}}
+        </label>
+        <label class="item item-input item-select"style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
+                New Class:
+              </div>
+            <select ng-model="currentselectedexam.classname2" style="background-color: gainsboro;color:#660033;">
+              <option ng-repeat="clas in classes3 | unique: 'class'" > {{clas.class}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-select"style="background-color: gainsboro;color:#660033;">
+            <div class="input-label"style="background-color: gainsboro;color:#660033;">
+                Edit Section:
+              </div>
+            <select ng-model="currentselectedexam.classsection2" style="background-color: gainsboro;color:#660033;" >
+              <option ng-repeat="class in classes3">{{class.classsection}}</option>
+            </select>
+        </label>
+
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
+              Edit  Subject:
+              </div>
+            <select ng-model="currentselectedexam.subjectname2" style="background-color: gainsboro;color:#660033;">
+              <option ng-repeat="subject in subjectlistarray">{{subject.subjectname}}</option>
+            </select>
+        </label>
+
+        <label class="item item-input" style="background-color: gainsboro;color:#660033;">Old date: {{currentselectedexam.examdate2}}
+        </label>
+
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
+            New Date
+            </div>
+            <input type="date" placeholder="Date of exam"  name="date" ng-model="currentselectedexam.newdate">
+      </label>
+      <label class="item item-input" style="background-color: gainsboro;color:#660033;">Old Time: {{currentselectedexam.examtime2}}
+      </label>
+      <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+        <div class="input-label" style="background-color: gainsboro;color:#660033;">
+        New time
+          </div>
+          <input type="time" placeholder="Time of exam"  name="time" ng-model="currentselectedexam.newtime">
+    </label>
+
+     </div>
+ </ion-content>
+ <div class = "bar bar-footer custom2" ng-click="closeTeditexamModal();updateexam(currentselectedexam.newtime,currentselectedexam.newdate);" >
+   <h1 class = "title" style="color:#ffffff;">Submit</h1>
+</div>
+ </ion-modal-view>
+
+ <style>
+
+ .custom2{
+background:linear-gradient(to top right, #660033 53%, #ffffff 150%); !important; // for bg color
+ }
+ .cust2 {
+   color: #ffffff !important;
+ }
+ </style>

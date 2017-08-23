@@ -6,43 +6,43 @@
    </ion-header-bar>
    <ion-content class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
      <div class="list card">
-       <label class="item item-input">
+       <label class="item item-input" style="background-color: gainsboro;color:#660033;">
           <input type="text" placeholder="Exam Name Here" ng-model="newexamdetails.name">
         </label>
-        <label class="item item-input item-select">
-            <div class="input-label">
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
                 Select Class:
               </div>
-            <select ng-model="newexamdetails.classname" >
+            <select ng-model="newexamdetails.classname"  style="background-color: gainsboro;">
               <option ng-repeat="clas in classes3 | unique: 'class'" > {{clas.class}}</option>
             </select>
         </label>
-        <label class="item item-input item-select">
-            <div class="input-label">
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
                 Select Section:
               </div>
-            <select ng-model="newexamdetails.classsection" >
+            <select ng-model="newexamdetails.classsection"  style="background-color: gainsboro;" >
               <option ng-repeat="class in classes3">{{class.classsection}}</option>
             </select>
         </label>
 
-        <label class="item item-input item-select">
-            <div class="input-label">
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
                 Subject:
               </div>
-            <select ng-model="newexamdetails.subject" >
+            <select ng-model="newexamdetails.subject"  style="background-color: gainsboro;">
               <option ng-repeat="subject in subjectlistarray">{{subject.subjectname}}</option>
             </select>
         </label>
 
-        <label class="item item-input item-select">
-          <div class="input-label">
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
             Date
             </div>
             <input type="date" placeholder="Date of exam "  name="date" ng-model="newexamdetails.date">
       </label>
-      <label class="item item-input item-select">
-        <div class="input-label">
+      <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+        <div class="input-label" style="background-color: gainsboro;color:#660033;">
           time
           </div>
           <input type="time" placeholder="Time of exam"  name="time" ng-model="newexamdetails.time">

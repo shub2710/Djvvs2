@@ -39,21 +39,21 @@
 
     <form id="classSchedule-form6" class="list">
 
-      <label class="item item-input item-select">
-          <div class="input-label">
+      <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
               Class
             </div>
-          <select ng-model="classselected2.class">
+          <select ng-model="classselected2.class" style="background-color: gainsboro;color:#660033;">
             <option ng-repeat=" class in classes2 | unique: 'class'">{{class.class}}</option>
 
           </select>
       </label>
 
-      <label class="item item-input item-select">
-          <div class="input-label">
+      <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
               Section:
             </div>
-          <select ng-model="classselected2.section" ng-change="specificclasstimetable()">
+          <select ng-model="classselected2.section" ng-change="specificclasstimetable()"style="background-color: gainsboro;color:#660033;">
             <option ng-repeat="sec  in classes2">{{sec.classsection}}</option>
 
           </select>

@@ -6,35 +6,35 @@
    <ion-content class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
      <div class="list card">
 
-       <label class="item item-input">
-          <input type="text" placeholder="Notification Name" ng-model="newnotification.name">
+       <label class="item item-input" style="background-color: gainsboro;color:#ffffff;">
+          <input type="text" placeholder="Enter notification name" ng-model="newnotification.name">
         </label>
 
-        <label class="item item-input">
-          <input type="text" placeholder="Description" ng-model="newnotification.description">
+        <label class="item item-input" style="background-color: gainsboro;color:#660033;">
+          <input type="text" placeholder="Enter notification description" ng-model="newnotification.description">
         </label>
-        <label class="item item-input item-select">
-          <div class="input-label">
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
             Notification date
             </div>
           <input type="date" placeholder="Notification Date" ng-model="newnotification.notificationdate">
         </label>
 
 
-        <label class="item item-input item-select">
-            <div class="input-label">
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
                 Notification for
               </div>
-            <select ng-model="newnotification.sendto" ng-change="getlist()">
+            <select ng-model="newnotification.sendto" ng-change="getlist()" style="background-color: gainsboro;color:color:#ffffff;">
               <option>Class</option>
               <option>Student</option>
             </select>
         </label>
-        <label class="item item-input item-select">
-            <div class="input-label">
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
                 Priority
               </div>
-            <select ng-model="newnotification.priority">
+            <select ng-model="newnotification.priority" style="background-color: gainsboro;color:color:#ffffff;">
               <option>High</option>
               <option>Medium</option>
               <option>Critical</option>
@@ -42,34 +42,34 @@
             </select>
         </label>
 
-        <label class="item item-divider item-asssertive" ng-if="showclasses == 1"> Classes
-          <label  class="item " ng-repeat="class in classes4" >
+        <label class="item item-divider item-asssertive" ng-if="showclasses == 1" style="background-color: gainsboro;color:#660033;"> Classes
+          <label  class="item " ng-repeat="class in classes4" style="background-color: gainsboro;color:#660033;" >
           <input type="checkbox" class="checkboxOne"  id="roundedTwo" data-checklist-value="class.classid" data-checklist-model="selectedclass" /> <label> Class - {{class.class}} : {{class.classsection}}</label>
         </label>
       </label>
 
-      <label class="item item-input item-select" ng-if="showclassselection == 1">
-        <div class="input-label">
+      <label class="item item-input item-select" ng-if="showclassselection == 1"style="background-color: gainsboro;color:#660033;">
+        <div class="input-label" style="background-color: gainsboro;color:#660033;">
             Class
           </div>
-        <select ng-model="classforlist.class"  ng-change="fetchstudentlist()">
+        <select ng-model="classforlist.class"  ng-change="fetchstudentlist()" style="background-color: gainsboro;color:#660033;">
           <option ng-repeat="clas in classes4 | unique: 'class'">{{clas.class}}</option>
         </select>
     </label>
 
 
 
-          <label class="item item-input item-select"  ng-if="showclassselection == 1">
-              <div class="input-label">
+          <label class="item item-input item-select"  ng-if="showclassselection == 1" style="background-color: gainsboro;color:#660033;">
+              <div class="input-label" style="background-color: gainsboro;color:#660033;">
                   Section:
                 </div>
-              <select ng-model="classforlist.section" ng-change="fetchstudentlist()" >
+              <select ng-model="classforlist.section" ng-change="fetchstudentlist()" style="background-color: gainsboro;color:#660033;">
                 <option ng-repeat = "section in classes4">{{section.classsection}}</option>
               </select>
           </label>
 
-          <label class="item item-divider item-asssertive" ng-if="showstudents == 1"> Students
-            <label  class="item " ng-repeat="student in studentdetails" >
+          <label class="item item-divider item-asssertive" ng-if="showstudents == 1" style="background-color: gainsboro;color:#660033;"> Students
+            <label  class="item " ng-repeat="student in studentdetails"style="background-color: gainsboro;color:#660033;" >
             <input type="checkbox" class="checkboxOne"  id="roundedTwo" data-checklist-value="student.studentid" data-checklist-model="selectedstudents" /> <label>{{student.studentname}}</label>
           </label>
         </label>

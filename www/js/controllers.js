@@ -773,19 +773,51 @@ angular.module('app.controllers', [])
         console.log($rootScope.teacherteachestheseclass);
         $scope.classselected3 = {};
 
+$scope.selectedstudents = [];
+        $scope.getstudentlistA = function(date2) {
 
-        $scope.getstudentlistA = function() {
+$scope.selectedstudents.length = 0;
             console.log("we need these class student list", $scope.classselected);
+              $scope.classselected3.newdate =   $filter('date')(date2, "yyyy-MM-dd");
 
             var classdetail = $scope.classselected3;
 
             Serviceapi.fetchstudentlist(classdetail).then(function(data) {
                 console.log(data);
                 $scope.studentdetailsforattendance = data.response;
+                $scope.attendance2 = data.response1;
             })
         }
 
-        $scope.selectedstudents = [];
+
+
+        $scope.sessionselection = function(session){
+
+            if($scope.attendance2.length > 0){
+              if(session == 'Morning'){
+                console.log("morning session");
+
+                $scope.selectedstudents.length = 0;
+
+                for(var i=0;i<$scope.attendance2.length;i++){
+                if(  $scope.attendance2[i].morning == '1'){
+                  $scope.selectedstudents.push($scope.studentdetailsforattendance[i].studentid);
+                }
+                }
+            }else{
+              console.log("afternoon session");
+                $scope.selectedstudents.length = 0;
+              for(var j=0;j<$scope.attendance2.length;j++){
+              if( $scope.attendance2[j].afternoon == '1'){
+                $scope.selectedstudents.push($scope.studentdetailsforattendance[j].studentid);
+              }
+              }
+            }
+          }
+        }
+
+
+
 
 
 
@@ -1003,6 +1035,90 @@ angular.module('app.controllers', [])
             $scope.Tnewexammodal.hide();
         };
 
+        $ionicModal.fromTemplateUrl('templates/modals/editexam.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.Teditexammodal = modal;
+        });
+
+        $scope.openTeditexamModal = function() {
+            $scope.Teditexammodal.show();
+        };
+        $scope.closeTeditexamModal = function() {
+            $scope.Teditexammodal.hide();
+        };
+
+
+        $scope.editexam = function(id,examname,classname,classsection,subjectname,examdate,examtime){
+          $scope.currentselectedexam = {
+            id2 : id,
+            Ename : examname,
+            classname2 : classname,
+            classsection2 : classsection,
+            subjectname2 : subjectname,
+            examdate2 : examdate,
+            examtime2 : examtime,
+          }
+          $scope.openTeditexamModal();
+
+          console.log("selected exam details",$scope.currentselectedexam);
+        }
+
+        $scope.updateexam = function(time1,date1){
+            console.log(date1);
+              console.log(time1);
+          if(date1 != undefined || date1 != null || time1 != undefined ||  time1 !=null){
+            $ionicLoading.show({
+                template: 'Updating with new details',
+                duration: 3000
+            });
+             date1 = $filter('date')(date1, "yyyy-MM-dd");
+
+             time1 = $filter('date')(time1, "HH:mm");
+             $scope.currentselectedexam.examdate2 = date1;
+             $scope.currentselectedexam.examtime2 = time1;
+             $scope.currentselectedexam.creationdate =  $filter('date')(new Date(), "yyyy-MM-dd");
+             $scope.currentselectedexam.createdby = $rootScope.teacherdetail.teacherid;
+             console.log("updating with new values",$scope.currentselectedexam);
+                var data = $scope.currentselectedexam;
+             Serviceapi.updateexam(data).then(function(result){
+                console.log(result);
+                if(result.status == 'success'){
+                  $scope.fetchallexams();
+                }else{
+                  $ionicLoading.show({
+                      template: 'Could not update,contact admin',
+                      duration: 3000
+                  });
+                }
+             })
+
+
+          }else{
+            $ionicLoading.show({
+                template: 'Updating with old values',
+                duration: 3000
+            });
+            $scope.currentselectedexam.creationdate =  $filter('date')(new Date(), "yyyy-MM-dd");
+            $scope.currentselectedexam.createdby = $rootScope.teacherdetail.teacherid;
+            console.log("updating with Old values",$scope.currentselectedexam);
+            var data = $scope.currentselectedexam;
+            Serviceapi.updateexam(data).then(function(result){
+               console.log(result);
+               if(result.status == 'success'){
+                 $scope.fetchallexams();
+               }else{
+                 $ionicLoading.show({
+                     template: 'Could not update,contact admin',
+                     duration: 3000
+                 });
+               }
+            })
+
+          }
+        }
+
     })
 
     .controller('TnotificationsCtrl', function($scope, $stateParams, $ionicModal, $rootScope, Serviceapi, $filter, $ionicLoading, $ionicPopup) {
@@ -1019,6 +1135,19 @@ angular.module('app.controllers', [])
         };
         $scope.closeTcreatenotificationModal = function() {
             $scope.Tcreatenotificationmodal.hide();
+        };
+        $ionicModal.fromTemplateUrl('templates/modals/editnotification.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.Teditnotificationmodal = modal;
+        });
+
+        $scope.openTeditnotificationModal = function() {
+            $scope.Teditnotificationmodal.show();
+        };
+        $scope.closeTeditnotificationModal = function() {
+            $scope.Teditnotificationmodal.hide();
         };
 
         $scope.classes4 = $rootScope.teacherteachestheseclass;
@@ -1040,7 +1169,7 @@ angular.module('app.controllers', [])
                 $scope.showstudents = 0
                 console.log($scope.classes4);
             }
-            if ($scope.newnotification.sendto == "Student") {
+            if ($scope.newnotification.sendto == "Student" ) {
 
                 $scope.showclassselection = 1;
                 $scope.showclasses = 0;
@@ -1062,6 +1191,70 @@ angular.module('app.controllers', [])
                 $scope.showstudents = 1;
             })
 
+        }
+
+        $scope.editnotification = function(id,name,description,createdon,notificationdate,for1,priority){
+          $scope.currrentselectednotification = {
+            Nid : id,
+            Nname : name,
+            Ndescription : description,
+            Ncreatedon : createdon,
+            Nnotificationdate : notificationdate,
+            Nfor : for1,
+            Npriority : priority
+          }
+
+          $scope.openTeditnotificationModal();
+
+          console.log($scope.currrentselectednotification);
+        }
+
+        $scope.updatenotification = function(notificationdate){
+          if(notificationdate != undefined || notificationdate != null){
+            $scope.currrentselectednotification.Nnotificationdate = $filter('date')(notificationdate, "yyyy-MM-dd");
+            $scope.currrentselectednotification.Ncreatedon = $filter('date')(new Date(), "yyyy-MM-dd")
+
+            console.log("updating with new date ",$scope.currrentselectednotification);
+            var data2 = $scope.currrentselectednotification;
+              Serviceapi.updatenotification(data2).then(function(result){
+                console.log(result);
+                if(result.status == 'Success'){
+                  $scope.fetchcurrentnotification();
+                  $ionicLoading.show({
+                      template: 'Notification Updated',
+                      duration: 3000
+                  });
+                }else{
+                  $ionicLoading.show({
+                      template: 'Not updated,Contact admin',
+                      duration: 3000
+                  });
+                }
+              })
+
+          }else{
+            console.log("updating with old date ",$scope.currrentselectednotification);
+            $scope.currrentselectednotification.Ncreatedon = $filter('date')(new Date(), "yyyy-MM-dd")
+
+            console.log("updating with new date ",$scope.currrentselectednotification);
+            var data2 = $scope.currrentselectednotification;
+              Serviceapi.updatenotification(data2).then(function(result){
+                console.log(result);
+                if(result.status == 'Success'){
+                  $scope.fetchcurrentnotification();
+                  $ionicLoading.show({
+                      template: 'Notification Updated',
+                      duration: 3000
+                  });
+                }else{
+                  $ionicLoading.show({
+                      template: 'Not updated,Contact admin',
+                      duration: 3000
+                  });
+                }
+              })
+
+          }
         }
 
         $scope.mySelect;

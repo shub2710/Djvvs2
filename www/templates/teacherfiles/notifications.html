@@ -1,11 +1,14 @@
 <ion-view title="Notifications" id="page5">
   <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
     <div class="list card" ng-repeat="notification in allnotifications" ng-show="shownotifications" style="border-color: darkviolet;margin-top:0px;">
-          <div class="item" style="border-color: darkviolet;">
+      <ion-item class="item-divider"   style=" background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color:
+      darkviolet;text-align:center;color:#ffffff;">
+      <b>{{notification.name}} </b>  <a ng-click="deletenotification(notification.notificationid);"><span class="item-note" style="color:#ffffff;">
+            Delete Me!! <i class="icon ion-trash-b" style="color:#f2f2f2" > </i>
+            </span></a>
+    </ion-item>
 
-            <h2><b>{{notification.name}} </b>  <a ng-click="deletenotification(notification.notificationid);"><span class="item-note" style="color:#660033;">
-                  Delete Me!!
-                  </span></a></h2>
+          <div class="item" style="border-color: darkviolet;">
             <p><b>{{notification.description}} </b><a ng-if="notification.read != 1"><span class="item-note" style="color:#CE5A57">
                    Not Read Yet
                 </span></a>
@@ -17,11 +20,17 @@
               <p>
                 <a  class="subdued" style="color:#660033;" >Created on: {{notification.createddate}}</a><br>
                 <a  class="subdued" style="color:#660033;" >Notification date: {{notification.notificationdate}}</a><br>
-                <a class ="subdued"  style="color:#660033;" >Notification for : {{notification.for}}</a>
-                <a class ="subdued" style="color:#660033;" >Priority : {{notification.priority}}</a>
+                <a class ="subdued"  style="color:#660033;" >Notification for : {{notification.for}}</a><br>
               </p>
       </div>
 
+      <ion-item class="item-divider"   style=" background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color:
+      darkviolet;text-align:center;color:#ffffff;">
+      <b>Priority : {{notification.priority}}</b>
+      <a ng-click="editnotification(notification.notificationid,notification.name,notification.description,notification.createddate,notification.notificationdate,notification.for,notification.priority);"><span class="item-note" style="color:#ffffff;">
+            Edit Me!!<i class="icon ion-edit" style="color:#f2f2f2" > </i>
+            </span></a>
+    </ion-item>
 </div>
 <div class="list card" ng-show="shownoresult" style="border-color: darkviolet;">
       <div class="item ">

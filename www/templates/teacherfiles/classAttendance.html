@@ -6,23 +6,6 @@
                 Mark Attendance
 
       </label>
-      <label class="item item-input item-select" style="background-color: gainsboro;color:color:#660033;">
-          <div class="input-label"  style="background-color: gainsboro;color:#660033;">
-              Class
-            </div>
-          <select ng-model="classselected3.class" ng-change="getstudentlistA()" style="background-color: gainsboro;color:#ffffff;">
-            <option ng-repeat="clas in classes3 | unique: 'class'">{{clas.class}}</option>
-          </select>
-      </label>
-
-      <label class="item item-input item-select" style="background-color: gainsboro;">
-          <div class="input-label" style="background-color: gainsboro;color:#660033;">
-              Section:
-            </div>
-          <select ng-model="classselected3.section" ng-change="getstudentlistA()" style="background-color: gainsboro;">
-            <option ng-repeat="clas in classes3">{{clas.classsection}}</option>
-          </select>
-      </label>
       <label class="item item-input item-select" style="
     background-color: gainsboro;
 ">
@@ -31,11 +14,29 @@
             </div>
             <input type="date" placeholder="Date of attendance"  name="date" ng-model="classselected3.date">
       </label>
+      <label class="item item-input item-select" style="background-color: gainsboro;color:color:#660033;">
+          <div class="input-label"  style="background-color: gainsboro;color:#660033;">
+              Class
+            </div>
+          <select ng-model="classselected3.class" ng-change="getstudentlistA(classselected3.date)" style="background-color: gainsboro;color:#ffffff;">
+            <option ng-repeat="clas in classes3 | unique: 'class'">{{clas.class}}</option>
+          </select>
+      </label>
+
+      <label class="item item-input item-select" style="background-color: gainsboro;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
+              Section:
+            </div>
+          <select ng-model="classselected3.section" ng-change="getstudentlistA(classselected3.date)" style="background-color: gainsboro;">
+            <option ng-repeat="clas in classes3">{{clas.classsection}}</option>
+          </select>
+      </label>
+
       <label class="item item-input item-select"  style="background-color: gainsboro;">
           <div class="input-label" style="background-color: gainsboro;color:#660033;">
               Session
             </div>
-            <select ng-model="classselected3.session" style="background-color: gainsboro;color:#660033;">
+            <select ng-model="classselected3.session" style="background-color: gainsboro;color:#660033;" ng-change="sessionselection(classselected3.session)">
               <option >Morning</option>
               <option >Afternoon</option>
             </select>

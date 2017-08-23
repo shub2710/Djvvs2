@@ -3,8 +3,8 @@
   <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
 
     <div class="list card " id="profile-card21" ng-repeat="exam in studentexams" style="margin-top:0px;" >
-      <ion-item class=" item-icon-right" id="profile-list-item10" style="background-color:#f2f2f2;border-color: darkviolet;">
-        <h2>Exam Name: {{exam.examname}} </h2>
+      <ion-item class=" item-icon-right" id="profile-list-item10" style=" background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;text-align:center;color:#ffffff;">
+        <h2 style="text-align:center;color:#ffffff;">Exam Name: {{exam.examname}} </h2>
       </ion-item>
       <ion-item id="profile-list-item19" style="background-color:#f2f2f2;border-color: darkviolet;">Class : {{exam.classname}} <span class="item-note" style="color:#CE5A57">
              {{exam.classsection}} Section
@@ -15,7 +15,7 @@
           </span></ion-item>
       <ion-item class="item-divider" ng-if="currentdate > exam.examdate"  style=" background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;text-align:center;color:#ffffff;">Exam date over</ion-item>
       <ion-item class="item-divider" ng-if="currentdate > exam.examdate"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;text-align:center; color:#ffffff;" ng-click="checkresultforstu(exam.Exam_id,exam.subjectname)">Check Result</ion-item>
-      <ion-item class="item-divider" ng-if="currentdate < exam.examdate"  style="border-color: darkviolet;text-align:center;">Exam yet to Happen</ion-item>
+      <ion-item class="item-divider" ng-if="currentdate < exam.examdate"  style=" background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;text-align:center;color:#ffffff;">Exam yet to Happen</ion-item>
       <ion-item class="item-divider item-icon-right" ng-if = "showresult == 1" ng-repeat="mark in resultarray">Marks Obtained:{{ mark.marksscored}}/{{mark.maxmarks}}<span class="item-note" ng-click="hideresult()" style="color:#CE5A57">
              Hide Me
           </span></ion-item>

@@ -2,9 +2,10 @@
 <ion-view title="Notifications" id="page5">
   <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
     <div class="list card " ng-repeat="notification in studentnotifications" style=" border-color: darkviolet;margin-top:0px;">
+      <ion-item class="item-divider"   style=" background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;text-align:center;color:#ffffff;">Name: {{notification.name}}</ion-item>
 
   <div class="item" style=" border-color: darkviolet;">
-    <h2><b>Name: {{notification.name}} </h2></b>
+
     <p><b> Last date:</b> {{notification.notificationdate}}  <a ng-if="notification.read != 1" ng-click="marknotificationasread(notification.notificationid)"><span class="item-note" style="color:#CE5A57">
            Mark as Read
         </span></a>
@@ -21,11 +22,9 @@
     <p>
       <a  class="subdued"><b>By:</b> {{notification.teachername}}</a>
     </p>
-    <p>
-      <a  class="subdued"><b>Priority:</b> {{notification.priority}}
-      </a>
-    </p>
   </div>
+  <ion-item class="item-divider"   style=" background:linear-gradient(to top right, #660033 53%, #ffffff 150%);border-color: darkviolet;text-align:center;color:#ffffff;">Priority: {{notification.priority}}</ion-item>
+
 </div>
 
 <div class="list card" ng-show="nonotificationsyet">

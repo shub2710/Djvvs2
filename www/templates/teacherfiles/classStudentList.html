@@ -2,22 +2,22 @@
   <ion-content padding="true" class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
 
 
-    <label class="item item-input item-select">
-      <div class="input-label">
+    <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+      <div class="input-label" style="background-color: gainsboro;color:#660033;">
           Class
         </div>
-      <select ng-model="classselected.class"  >
+      <select ng-model="classselected.class"  style="background-color: gainsboro;color:#660033;">
         <option ng-repeat="clas in classes | unique: 'class'" >{{clas.class}}</option>
       </select>
   </label>
 
 
       <div>
-        <label class="item item-input item-select" >
-            <div class="input-label">
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
                 Section:
               </div>
-            <select ng-model="classselected.section" ng-change="fetchstudentlist()" >
+            <select ng-model="classselected.section" ng-change="fetchstudentlist()" style="background-color: gainsboro;color:#660033;">
               <option ng-repeat = "section in classes">{{section.classsection}}</option>
 
 
@@ -25,7 +25,7 @@
         </label>
       </div>
 
-<div class="list card" ng-repeat="student in studentdetails" style="margin-top:3px">
+<div class="list card" ng-repeat="student in studentdetails" style="margin-top:7px">
 
           <div class="item item-avatar" style="border-color: darkviolet;">
             <img ng-src="{{student.studentpicurl}}">

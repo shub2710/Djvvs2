@@ -14,8 +14,16 @@
       <ion-item id="profile-list-item20" style="background-color:#f2f2f2">Exam Date: {{exam.examdate}} <span class="item-note" style="color:linear-gradient(to top right, #660033 53%, #ffffff 150%);">
             <b>Time: {{exam.examtime}}</b>
           </span></ion-item>
-      <ion-item class="item-divider" ng-if="currentdate > exam.examdate"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;text-align:center;">Exam date over</ion-item>
-      <ion-item class="item-divider" ng-if="currentdate < exam.examdate"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;text-align:center;">Exam yet to Happen</ion-item>
+      <ion-item class="item-divider" ng-if="currentdate > exam.examdate"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;text-align:center;">Exam date over
+        <span class="item-note"  ng-click="editexam(exam.Exam_id,exam.examname,exam.classname,exam.classsection,exam.subjectname,exam.examdate,exam.examtime)">
+              Edit  <i class="icon ion-edit" style="color:#f2f2f2" > </i>
+            </span>
+          </ion-item>
+      <ion-item class="item-divider" ng-if="currentdate < exam.examdate"  style="background:linear-gradient(to top right, #660033 53%, #ffffff 150%);color:#ffffff;text-align:center;">Exam yet to Happen
+        <span class="item-note"  ng-click="editexam(exam.Exam_id,exam.examname,exam.classname,exam.classsection,exam.subjectname,exam.examdate,exam.examtime)">
+              Edit  <i class="icon ion-edit" style="color:#f2f2f2" > </i>
+            </span>
+      </ion-item>
 
 
     </div>

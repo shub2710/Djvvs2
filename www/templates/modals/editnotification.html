@@ -1,0 +1,59 @@
+<ion-modal-view>
+   <ion-header-bar align-title="center" class="custom4" >
+     <h1 class="title" style="color: #ffffff">Edit Notification</h1>
+     <button class="button button-clear cust2" ng-click="closeTeditnotificationModal()">close</button>
+   </ion-header-bar>
+   <ion-content class="has-header" style="background: url(img/background2.jpg)  no-repeat center center fixed;  background-size:cover;">
+     <div class="list card">
+
+       <label class="item item-input" style="background-color: gainsboro;color:#660033;">
+         Name:&nbsp
+          <input type="text" placeholder="{{currrentselectednotification.Nname}}" ng-model="currrentselectednotification.Nname">
+        </label>
+
+        <label class="item item-input" style="background-color: gainsboro;color:#660033;">
+          Description:&nbsp
+          <input type="text" placeholder="{{currrentselectednotification.Ndescription}}" ng-model="currrentselectednotification.Ndescription">
+        </label>
+        <label class="item item-input" style="background-color: gainsboro;color:#660033;">Old Notification Date:&nbsp
+          {{currrentselectednotification.Nnotificationdate}}
+        </label>
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+          <div class="input-label" style="background-color: gainsboro;color:#660033;">
+            New date
+            </div>
+          <input type="date" placeholder="Notification Date" ng-model="currrentselectednotification.Nnotificationnewdate">
+        </label>
+
+
+        <label class="item item-input" style="background-color: gainsboro;color:#660033;"> Notification For:&nbsp
+          {{currrentselectednotification.Nfor}}
+        </label>
+        <label class="item item-input item-select" style="background-color: gainsboro;color:#660033;">
+            <div class="input-label" style="background-color: gainsboro;color:#660033;">
+                Priority
+              </div>
+            <select ng-model="currrentselectednotification.Npriority" style="background-color: gainsboro;color:color:#ffffff;">
+              <option>High</option>
+              <option>Medium</option>
+              <option>Critical</option>
+
+            </select>
+        </label>
+
+     </div>
+ </ion-content>
+ <div class = "bar bar-footer custom4" ng-click="closeTeditnotificationModal();updatenotification(currrentselectednotification.Nnotificationnewdate)" >
+   <h1 class = "title" style="color:#ffffff;">Submit</h1>
+</div>
+ </ion-modal-view>
+
+ <style>
+
+ .custom4{
+background:linear-gradient(to top right, #660033 53%, #ffffff 150%); !important; // for bg color
+ }
+ .cust2 {
+   color: #ffffff !important;
+ }
+ </style>
